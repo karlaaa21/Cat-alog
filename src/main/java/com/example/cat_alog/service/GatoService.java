@@ -1,7 +1,7 @@
 package com.example.cat_alog.service;
 
 import com.example.cat_alog.model.Gato;
-import com.example.bibliotecaduoc.repository.GatoRepository;
+import com.example.cat_alog.repository.GatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,13 +26,13 @@ public class GatoService {
     }
 
     public Gato updateGato(Gato gato){
-        if (!gatoRepository.existsById(gato.getId())){
+        if (!gatoRepository.existsById(gato.getGatoid())){
             return null;
         }
         return gatoRepository.save(gato);
     }
 
     public void deleteUsuario(int id){
-        gatoRepository.deteleById(id);
+        gatoRepository.deleteById(id);
     }
 }
